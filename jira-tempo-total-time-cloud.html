@@ -1,0 +1,23 @@
+<script>
+
+// For use with Jira Cloud
+
+// ===== Begin Configuration =====
+
+var jiraBaseURL = 'https://example.atlassian.net';
+var jiraStartDate = '2021-09-01'; // YYYY-MM-DD
+
+// ====== End Configuration ======
+
+var now = new Date();
+var year = now.getYear() + 1900;
+var month = now.getMonth() + 1;
+var day = now.getDate();
+if (month < 10) month = '0' + month;
+if (day < 10) day = '0' + day;
+var today = year + '-' + month + '-' + day;
+var url = jiraBaseURL + '/plugins/servlet/ac/io.tempo.jira/tempo-app#!/my-work/timesheet?columns=WORKED_COLUMN&dateDisplayType=days&from=' + jiraStartDate + '&groupBy=project&order=ASCENDING&periodKey&periodType=FIXED&showCharts=false&sortBy=TITLE_COLUMN&subPeriodType=MONTH&to=' + today + '&viewType=TIMESHEET';
+console.log(url);
+document.location=url;
+
+</script>
